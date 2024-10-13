@@ -1,0 +1,19 @@
+[workspace]
+members = ["packages/*"]
+
+[workspace.package]
+description = "Pretty Assertions"
+cairo-version = "2.8.2"
+version = "0.1.0"
+readme = "README.md"
+repository = "https://github.com/m-kus/cairo-pretty-assertions"
+license-file = "LICENSE"
+
+[profile.cairo1-run.cairo]
+# https://github.com/lambdaclass/cairo-vm/issues/1745
+enable-gas = false
+# https://github.com/software-mansion/scarb/blob/4d91be7a7dbfeb24327e3ba21c62fbac43a2105a/scarb/src/compiler/compilers/lib.rs#L154
+sierra-replace-ids = true
+
+[workspace.dependencies]
+cairo_test = "2.8.0"

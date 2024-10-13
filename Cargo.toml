@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = [
+    "packages/pretty_format_derive",
+    "packages/pretty_assertions"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+repository = "https://github.com/m-kus/cairo-pretty-assertions"
+license = "MIT"
+license-file = "LICENSE"

@@ -1,0 +1,11 @@
+[package]
+name = "pretty_format_derive"
+version = "0.1.0"
+edition = "2024_07"
+
+[cairo-plugin]
+
+[dependencies]
+
+[dev-dependencies]
+cairo_test.workspace = true

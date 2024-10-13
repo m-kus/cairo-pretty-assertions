@@ -1,1 +1,1 @@
-# cairo-pretty-assertions
+# Cairo Pretty Assertions

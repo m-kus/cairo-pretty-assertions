@@ -1,0 +1,10 @@
+[package]
+name = "pretty_print"
+version = "0.1.0"
+edition = "2024_07"
+
+[dependencies]
+diff = { path = "../diff" }
+
+[dev-dependencies]
+cairo_test.workspace = true
