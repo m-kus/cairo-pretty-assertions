@@ -1,5 +1,5 @@
 [package]
-name = "pretty_assertions"
+name = "pretty_format_macro"
 version = "0.1.0"
 edition = "2021"
 publish = false

@@ -3,9 +3,10 @@ name = "pretty_assertions"
 version = "0.1.0"
 edition = "2024_07"
 
-[cairo-plugin]
-
 [dependencies]
+diff = { path = "../diff" }
+pretty_format = { path = "../pretty_format" }
+pretty_assertions_macro = { path = "../pretty_assertions_macro" }
 
 [dev-dependencies]
 cairo_test.workspace = true

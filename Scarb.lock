@@ -8,14 +8,31 @@ version = "0.1.0"
 [[package]]
 name = "pretty_assertions"
 version = "0.1.0"
+dependencies = [
+ "diff",
+ "pretty_assertions_macro",
+ "pretty_format",
+]
 
 [[package]]
-name = "pretty_format_derive"
+name = "pretty_assertions_demo"
+version = "0.1.0"
+dependencies = [
+ "pretty_assertions",
+]
+
+[[package]]
+name = "pretty_assertions_macro"
 version = "0.1.0"
 
 [[package]]
-name = "pretty_print"
+name = "pretty_format"
 version = "0.1.0"
 dependencies = [
  "diff",
+ "pretty_format_macro",
 ]
+
+[[package]]
+name = "pretty_format_macro"
+version = "0.1.0"

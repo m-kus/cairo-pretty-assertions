@@ -1,13 +1,10 @@
 mod types;
 mod diff;
 mod string;
-mod demo;
-mod printer;
 
 pub use types::DiffResult;
 pub use diff::do_diff;
 pub use string::{split_chars, split_lines};
-pub use printer::{write_header, write_lines, write_inline_diff};
 
 /// Computes the diff between the lines of two strings.
 pub fn lines(left: @ByteArray, right: @ByteArray) -> Array<DiffResult<@ByteArray>> {

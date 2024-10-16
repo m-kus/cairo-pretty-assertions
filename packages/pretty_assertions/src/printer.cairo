@@ -59,9 +59,7 @@ pub impl LatentDeletionImpl of LatentDeletionTrait {
 // Credits johannhof (MIT License)
 
 /// Present the diff output for two mutliline strings in a pretty, colorised manner.
-pub fn write_lines(
-    ref f: Formatter, left: @ByteArray, right: @ByteArray,
-) -> Result<(), Error> {
+pub fn write_lines(ref f: Formatter, left: @ByteArray, right: @ByteArray,) -> Result<(), Error> {
     let mut changes = diff::lines(left, right);
     let mut next_change = changes.pop_front();
     let mut previous_deletion: LatentDeletion = Default::default();
@@ -135,7 +133,9 @@ fn is_right<T, +Drop<T>>(maybe_diff: Option<diff::DiffResult<T>>) -> bool {
 /// The given strings should not have a trailing newline.
 ///
 /// The output of this function will be two lines, each with a trailing newline.
-pub fn write_inline_diff(ref f: Formatter, left: @ByteArray, right: @ByteArray) -> Result<(), Error> {
+pub fn write_inline_diff(
+    ref f: Formatter, left: @ByteArray, right: @ByteArray
+) -> Result<(), Error> {
     let char_diff = diff::chars(left, right).span();
     let mut inner_result = Result::<(), Error>::Ok(());
 
@@ -143,8 +143,12 @@ pub fn write_inline_diff(ref f: Formatter, left: @ByteArray, right: @ByteArray) 
     write!(f, "\x1b[31m<\x1b[0m")?;
     for change in char_diff {
         inner_result = match change {
-            diff::DiffResult::Both((value, _)) => write!(f, "\x1b[31m{}\x1b[0m", char_to_str(*value)),
-            diff::DiffResult::Left(value) => write!(f, "\x1b[91m\x1b[1m{}\x1b[0m", char_to_str(*value)),
+            diff::DiffResult::Both((
+                value, _
+            )) => write!(f, "\x1b[31m{}\x1b[0m", char_to_str(*value)),
+            diff::DiffResult::Left(value) => write!(
+                f, "\x1b[91m\x1b[1m{}\x1b[0m", char_to_str(*value)
+            ),
             _ => Result::Ok(()),
         };
         if inner_result.is_err() {
@@ -160,8 +164,12 @@ pub fn write_inline_diff(ref f: Formatter, left: @ByteArray, right: @ByteArray) 
     write!(f, "\x1b[32m>\x1b[0m")?;
     for change in char_diff {
         inner_result = match change {
-            diff::DiffResult::Both((value, _)) => write!(f, "\x1b[32m{}\x1b[0m", char_to_str(*value)),
-            diff::DiffResult::Right(value) => write!(f, "\x1b[92m\x1b[1m{}\x1b[0m", char_to_str(*value)),
+            diff::DiffResult::Both((
+                value, _
+            )) => write!(f, "\x1b[32m{}\x1b[0m", char_to_str(*value)),
+            diff::DiffResult::Right(value) => write!(
+                f, "\x1b[92m\x1b[1m{}\x1b[0m", char_to_str(*value)
+            ),
             _ => Result::Ok(()),
         };
         if inner_result.is_err() {

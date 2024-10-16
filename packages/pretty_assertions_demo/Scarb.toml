@@ -1,11 +1,10 @@
 [package]
-name = "pretty_format"
+name = "pretty_assertions_demo"
 version = "0.1.0"
 edition = "2024_07"
 
 [dependencies]
-diff = { path = "../diff" }
-pretty_format_macro = { path = "../pretty_format_macro" }
+pretty_assertions = { path = "../pretty_assertions" }
 
 [dev-dependencies]
 cairo_test.workspace = true

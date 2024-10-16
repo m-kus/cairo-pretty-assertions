@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: Alexandria contributors https://github.com/keep-starknet-strange/alexandria
 //
-// SPDX-License-Identifier: MIT
+// SPDX-License-indentifier: MIT
 
 use crate::parse::StructInfo;
 
@@ -16,11 +16,7 @@ pub(crate) fn generate_pretty_format_impl(struct_info: &StructInfo) -> String {
         .map_or_else(String::new, |params| {
             let bounds = params
                 .iter()
-                .flat_map(|param| {
-                    vec![
-                        format!("+pretty_print::PrettyFormat<{}>", param),
-                    ]
-                })
+                .flat_map(|param| vec![format!("+PrettyFormat<{}>", param)])
                 .collect::<Vec<_>>()
                 .join(",\n");
             format!("<{},\n{}>", params.join(", "), bounds)
@@ -29,19 +25,20 @@ pub(crate) fn generate_pretty_format_impl(struct_info: &StructInfo) -> String {
     let pretty_print_fn = struct_info
         .members
         .iter()
-        .map(|member| format!("f.buffer.append(format!(\"\\n{{}}{{}},\", ident, {}.pretty_print(f, inner_ident)));", member))
+        .map(|member| format!(
+            "\twrite!(f, \"\\n{{}}\", indent)?;\n\tPrettyFormat::pretty_fmt(self.{member}, ref f, @inner_indent)?;\n\twrite!(f, \",\")?;"
+        ))
         .collect::<Vec<_>>()
         .join("\n");
 
     format!(
         "\n
-impl {0}PrettyFormatImpl{1}
-of pretty_print::PrettyFormat<{0}{2}> {{
-    fn pretty_format(self: @{0}{2}, ref f: core::fmt::Formatter, ident: @ByteArray) {{
-        let inner_ident = format!(\"{{}}  \", ident);
-        f.buffer.append(format!(\"{{}}{0} {{{{\", ident));
+impl {0}PrettyFormat{1} of PrettyFormat<{0}{2}> {{
+    fn pretty_fmt(self: @{0}{2}, ref f: core::fmt::Formatter, indent: @ByteArray) -> Result<(), core::fmt::Error> {{
+        let inner_indent = format!(\"{{}}{{}}\", indent, indent);
+        write!(f, \"{{}}{0} {{{{\", indent)?;
         {3}
-        f.buffer.append(format!(\"\\n{{}}}}}}\", ident));
+        write!(f, \"\\n{{}}}}}}\", indent)
     }}
 }}\n",
     struct_info.name, trait_bounds, generic_params, pretty_print_fn
