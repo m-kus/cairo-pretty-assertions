@@ -26,7 +26,7 @@ pub(crate) fn generate_pretty_format_impl(struct_info: &StructInfo) -> String {
         .members
         .iter()
         .map(|member| format!(
-            "\twrite!(f, \"\\n{{}}\", indent)?;\n\tPrettyFormat::pretty_fmt(self.{member}, ref f, @inner_indent)?;\n\twrite!(f, \",\")?;"
+            "\twrite!(f, \"\\n\")?;\n\tPrettyFormat::pretty_fmt(self.{member}, ref f, @inner_indent)?;\n\twrite!(f, \",\")?;"
         ))
         .collect::<Vec<_>>()
         .join("\n");
@@ -35,7 +35,7 @@ pub(crate) fn generate_pretty_format_impl(struct_info: &StructInfo) -> String {
         "\n
 impl {0}PrettyFormat{1} of PrettyFormat<{0}{2}> {{
     fn pretty_fmt(self: @{0}{2}, ref f: core::fmt::Formatter, indent: @ByteArray) -> Result<(), core::fmt::Error> {{
-        let inner_indent = format!(\"{{}}{{}}\", indent, indent);
+        let inner_indent = format!(\"{{}}  \", indent);
         write!(f, \"{{}}{0} {{{{\", indent)?;
         {3}
         write!(f, \"\\n{{}}}}}}\", indent)

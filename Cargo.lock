@@ -50,7 +50,7 @@ dependencies = [
  "cairo-lang-debug",
  "cairo-lang-filesystem",
  "cairo-lang-utils",
- "itertools",
+ "itertools 0.12.1",
 ]
 
 [[package]]
@@ -108,7 +108,7 @@ dependencies = [
  "cairo-lang-syntax-codegen",
  "cairo-lang-utils",
  "colored",
- "itertools",
+ "itertools 0.12.1",
  "num-bigint",
  "num-traits",
  "rust-analyzer-salsa",
@@ -150,7 +150,7 @@ checksum = "8bfc6372538143afad658c853a35bdc9f5210c5cb54e0c8f04ab78e268139466"
 dependencies = [
  "hashbrown 0.14.5",
  "indexmap",
- "itertools",
+ "itertools 0.12.1",
  "num-bigint",
  "num-traits",
  "serde",
@@ -251,6 +251,15 @@ name = "itertools"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
 dependencies = [
  "either",
 ]
@@ -380,6 +389,7 @@ dependencies = [
  "cairo-lang-macro",
  "cairo-lang-parser",
  "cairo-lang-syntax",
+ "itertools 0.13.0",
 ]
 
 [[package]]

@@ -11,3 +11,4 @@ crate-type = ["cdylib"]
 cairo-lang-macro = "0.1.0"
 cairo-lang-parser = "2.7.0"
 cairo-lang-syntax = "2.7.0"
+itertools = "0.13"

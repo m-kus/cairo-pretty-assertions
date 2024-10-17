@@ -12,6 +12,7 @@ pub fn assert_eq<T, +PrettyFormat<T>, +PartialEq<T>, +Drop<T>>(lhs: T, rhs: T, m
         write!(f, "assertion failed: `(left == right)` {message}\n\n").unwrap();
         printer::write_header(ref f).unwrap();
         printer::write_lines(ref f, @left, @right).unwrap();
+        // TODO: use panic! when cairo1-run supports printing ByteArrays
         print!("{}", f.buffer);
         core::panics::panic(array![]);
     }
