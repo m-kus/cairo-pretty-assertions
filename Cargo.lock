@@ -393,15 +393,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pretty_format_macro"
-version = "0.1.0"
-dependencies = [
- "cairo-lang-macro",
- "cairo-lang-parser",
- "cairo-lang-syntax",
-]
-
-[[package]]
 name = "proc-macro2"
 version = "1.0.87"
 source = "registry+https://github.com/rust-lang/crates.io-index"

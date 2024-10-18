@@ -1,7 +1,6 @@
 [workspace]
 resolver = "2"
 members = [
-    "packages/pretty_format_macro",
     "packages/pretty_assertions_macro"
 ]
 

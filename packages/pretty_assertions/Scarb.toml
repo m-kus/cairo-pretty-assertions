@@ -2,10 +2,15 @@
 name = "pretty_assertions"
 version = "0.1.0"
 edition = "2024_07"
+authors = ["Michael Zaikin <michael.zaikin@starkware.co>"]
+license = "MIT OR Apache-2.0"
+description = "Pretty assertions for equality checks"
+repository = "https://github.com/m-kus/cairo-pretty-assertions"
+homepage = "https://github.com/m-kus/cairo-pretty-assertions"
+readme = "README.md"
 
 [dependencies]
 diff = { path = "../diff" }
-pretty_format = { path = "../pretty_format" }
 pretty_assertions_macro = { path = "../pretty_assertions_macro" }
 
 [dev-dependencies]

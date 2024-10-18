@@ -12,6 +12,7 @@ pub fn assert_eq(token_stream: TokenStream) -> ProcMacroResult {
         "assert_eq!() expects at least two arguments"
     );
 
+    // Fix inference issue
     let ty = if args.iter().take(2).any(|arg| arg.starts_with("\"")) {
         "::<ByteArray>"
     } else if args.iter().take(2).any(|arg| arg.starts_with("@\"")) {
@@ -29,7 +30,7 @@ pub fn assert_eq(token_stream: TokenStream) -> ProcMacroResult {
     };
 
     let res = format!(
-        "pretty_assertions::assert_eq{ty}({}, {}, {message})",
+        "pretty_assertions::assert_eq_macro{ty}({}, {}, {message})",
         args[0], args[1]
     );
     ProcMacroResult::new(TokenStream::new(res))

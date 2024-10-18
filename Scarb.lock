@@ -11,11 +11,10 @@ version = "0.1.0"
 dependencies = [
  "diff",
  "pretty_assertions_macro",
- "pretty_format",
 ]
 
 [[package]]
-name = "pretty_assertions_demo"
+name = "pretty_assertions_examples"
 version = "0.1.0"
 dependencies = [
  "pretty_assertions",
@@ -23,16 +22,4 @@ dependencies = [
 
 [[package]]
 name = "pretty_assertions_macro"
-version = "0.1.0"
-
-[[package]]
-name = "pretty_format"
-version = "0.1.0"
-dependencies = [
- "diff",
- "pretty_format_macro",
-]
-
-[[package]]
-name = "pretty_format_macro"
 version = "0.1.0"

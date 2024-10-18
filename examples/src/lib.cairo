@@ -1,6 +1,4 @@
-use pretty_format::PrettyFormat;
-
-#[derive(Drop, Copy, PartialEq, PrettyFormat)]
+#[derive(Drop, Copy, PartialEq, Debug)]
 struct TestData {
     a: u32,
     b: @ByteArray,
@@ -14,6 +12,7 @@ fn main() {
 
     let lhs = TestData { a: 132, b: @"Hello", c: (1, 2), d: array![].span() };
     let rhs = TestData { a: 132, b: @"Hi", c: (2, 3), d: array![42].span() };
+
     assert_eq!(lhs, rhs, "Something is {}", 0xdead);
 }
 

@@ -2,6 +2,12 @@
 name = "diff"
 version = "0.1.0"
 edition = "2024_07"
+authors = ["Michael Zaikin <michael.zaikin@starkware.co>"]
+license = "MIT OR Apache-2.0"
+description = "Library for computing string diffs using LCS algorithm"
+repository = "https://github.com/m-kus/cairo-pretty-assertions"
+homepage = "https://github.com/m-kus/cairo-pretty-assertions"
+readme = "README.md"
 
 [dependencies]
 
