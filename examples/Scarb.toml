@@ -2,6 +2,7 @@
 name = "pretty_assertions_examples"
 version = "0.1.0"
 edition = "2024_07"
+publish = false
 
 [dependencies]
 pretty_assertions = { path = "../packages/pretty_assertions" }
