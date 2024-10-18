@@ -12,7 +12,7 @@ let line_by_line_diff = diff::lines(@"left\nbar", @"right\nbaz");
 
 For character level diff:
 
-```
+```cairo
 let char_diff = diff::chars(@"bar", @"baz");
 ```
 
