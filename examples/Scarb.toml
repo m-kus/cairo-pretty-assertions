@@ -7,4 +7,4 @@ edition = "2024_07"
 pretty_assertions = { path = "../packages/pretty_assertions" }
 
 [dev-dependencies]
-cairo_test.workspace = true
+cairo_test = "2.8.0"

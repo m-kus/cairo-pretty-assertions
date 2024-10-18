@@ -14,5 +14,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "pretty_assertions_examples"
+version = "0.1.0"
+dependencies = [
+ "pretty_assertions",
+]
+
+[[package]]
 name = "pretty_assertions_macro"
 version = "0.1.0"
